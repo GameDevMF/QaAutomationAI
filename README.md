@@ -17,13 +17,12 @@ It is designed to simulate how modern QA Engineers structure automation framewor
 ---
 
 ## 📁 Project Structure
-qa-automation-ai/
-│
-├── api_tests/ # API test cases using pytest
-├── ui_tests/ # UI automation tests (Playwright)
-├── core/ # Reusable components (API client, helpers)
-├── ai_experiments/ # AI-assisted testing experiments
-├── requirements.txt # Dependencies
+qa-automation-ai/<br>
+├── api_tests/ # API test cases using pytest<br>
+├── ui_tests/ # UI automation tests (Playwright)<br>
+├── core/ # Reusable components (API client, helpers)<br>
+├── ai_experiments/ # AI-assisted testing experiments<br>
+├── requirements.txt # Dependencies<br>
 └── README.md
 
 ---
