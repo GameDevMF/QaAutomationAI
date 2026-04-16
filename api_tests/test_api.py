@@ -1,20 +1,4 @@
-from core.api_client import ApiClient
-import pytest
-
-
-@pytest.fixture
-def post_payload():
-    return {
-        "title": "foo",
-        "body": "bar",
-        "userId": 1
-    }
-
-
-api = ApiClient()
-
-
-def test_get_todo():
+def test_get_todo(api):
     response = api.get("todos/1")
 
     assert response.status_code == 200, f"Expected status code 200 but got {response.status_code}"
@@ -26,7 +10,7 @@ def test_get_todo():
     assert data["id"] == 1, f"Expected id=1 but got {data['id']}"
 
 
-def test_get_title():
+def test_get_title(api):
     response = api.get("todos/1")
 
     data = response.json()
@@ -34,7 +18,7 @@ def test_get_title():
     assert data["title"] == "delectus aut autem", f"Expected title='delectus aut autem' but got {data['title']}"
 
 
-def test_post_request(post_payload):
+def test_post_request(api, post_payload):
     response = api.post("posts", post_payload)
 
     assert response.status_code == 201, f"Expected status code 201 but got {response.status_code}"
@@ -45,7 +29,7 @@ def test_post_request(post_payload):
     assert data["userId"] == post_payload["userId"], f"Expected userId='{post_payload['userId']}' but got {data['userId']}"
 
 
-def test_invalid_endpoint():
+def test_invalid_endpoint(api):
     response = api.get("invalid")
 
     assert response.status_code == 404, f"Expected status code 404 but got {response.status_code}"
