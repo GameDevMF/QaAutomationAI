@@ -1,42 +1,33 @@
 import pytest
+from core.assertions import assert_status, assert_data
 
 
 def test_get_todo_by_id(api):
     """Verify that a valid todo ID returns correct data"""
 
-    response = api.get("todos/1")
+    response, data = api.get("todos/1")
 
-    expectedText = "Expected status code 200 but got "
-    assert response.status_code == 200, f"{expectedText}{response.status_code}"
+    assert_status(response, 200)
 
-    data = response.json()
-
-    assert "id" in data, "Response JSON does not contain 'id'"
-
-    expectedText = "Expected id=1 but got "
-    assert data["id"] == 1, f"{expectedText}{data['id']}"
+    assert_data(data, "id", 1)
 
 
 def test_get_title(api):
     """Verify that the title of todo ID 1 is correct"""
 
-    response = api.get("todos/1")
+    response, data = api.get("todos/1")
 
-    data = response.json()
+    assert_status(response, 200)
 
-    expectedText = "Expected title='delectus aut autem' but got "
-    title = "delectus aut autem"
-    assert data["title"] == title, f"{expectedText}{data['title']}"
+    assert_data(data, "title", "delectus aut autem")
 
 
 @pytest.mark.parametrize("todo_id", [1, 2, 3])
 def test_multiple_todos_parametrized(api, todo_id):
     """Verify that multiple todo IDs return correct data parametrization"""
 
-    response = api.get(f"todos/{todo_id}")
+    response, data = api.get(f"todos/{todo_id}")
 
-    expectedText = "Expected 200 but got "
-    assert response.status_code == 200, f"{expectedText}{response.status_code}"
+    assert_status(response, 200)
 
-    data = response.json()
-    assert data["id"] == todo_id, f"Expected id={todo_id} but got {data['id']}"
+    assert_data(data, "id", todo_id)
