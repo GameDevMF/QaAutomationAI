@@ -51,6 +51,27 @@ qa-automation-ai/<br>
 
 ---
 
+## 🔧 Configuration
+
+The base API URL can be configured using an environment variable:
+
+For Windows Powershell
+```bash
+$env:BASE_URL="https://jsonplaceholder.typicode.com/"
+```
+
+For Windows CMD
+```bash
+set BASE_URL=https://jsonplaceholder.typicode.com/
+```
+
+For Linux
+```bash
+export BASE_URL=https://your-api-url.com
+```
+
+---
+
 ## ▶️ How to Run Tests
 
 ### 1. Install dependencies
