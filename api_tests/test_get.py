@@ -2,9 +2,13 @@ import pytest
 from core.assertions import assert_status, assert_data
 from test_data.todo_data import VALID_TODO
 from test_data.todo_data import MULTIPLE_TODOS
+from core.logger import get_logger
+
+logger = get_logger(__name__)
 
 
 def test_get_todo_by_id(api):
+    logger.info("Starting test: test_get_todo_by_id")
     """Verify that a valid todo ID returns correct data"""
 
     response, data = api.get("todos/1")
