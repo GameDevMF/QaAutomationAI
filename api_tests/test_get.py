@@ -1,5 +1,7 @@
 import pytest
 from core.assertions import assert_status, assert_data
+from test_data.todo_data import VALID_TODO
+from test_data.todo_data import MULTIPLE_TODOS
 
 
 def test_get_todo_by_id(api):
@@ -9,7 +11,7 @@ def test_get_todo_by_id(api):
 
     assert_status(response, 200)
 
-    assert_data(data, "id", 1)
+    assert_data(data, "id", VALID_TODO["id"])
 
 
 def test_get_title(api):
@@ -19,10 +21,10 @@ def test_get_title(api):
 
     assert_status(response, 200)
 
-    assert_data(data, "title", "delectus aut autem")
+    assert_data(data, "title", VALID_TODO["title"])
 
 
-@pytest.mark.parametrize("todo_id", [1, 2, 3])
+@pytest.mark.parametrize("todo_id", MULTIPLE_TODOS)
 def test_multiple_todos_parametrized(api, todo_id):
     """Verify that multiple todo IDs return correct data parametrization"""
 
