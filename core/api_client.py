@@ -33,4 +33,8 @@ class ApiClient:
             data = None
             logger.warning("Response does not contain valid JSON")
 
+        if not response.ok:
+            logger.warning(
+                f"Request failed with status {response.status_code}")
+
         return response, data
