@@ -1,7 +1,10 @@
+import pytest
 from core.assertions import assert_status, assert_data
 from test_data.todo_data import POST_PAYLOAD
 
 
+@pytest.mark.api
+@pytest.mark.smoke
 def test_post_request(api):
     """Verify that a POST request creates a new resource with correct data"""
 
