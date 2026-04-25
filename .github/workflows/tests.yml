@@ -29,6 +29,6 @@ jobs:
 
       - name: Run tests
         run: PYTHONPATH=. pytest -v
-        env: /
+        env:
           HEADLESS: "true"
           SLOW_MO: "0"
