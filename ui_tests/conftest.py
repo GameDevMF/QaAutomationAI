@@ -1,10 +1,23 @@
+import os
 import pytest
+from playwright.sync_api import sync_playwright
 
 
-@pytest.fixture(scope="session")
-def browser_type_launch_args(browser_type_launch_args):
-    return {
-        **browser_type_launch_args,
-        "headless": False,  # This forces the browser to pop up
-        "slow_mo": 500,     # Optional: adds a delay so you can actually see it
-    }
+def is_headless():
+    return os.getenv("HEADLESS", "false").lower() == "true"
+
+
+def get_slow_mo():
+    return int(os.getenv("SLOW_MO", "500"))
+
+
+@pytest.fixture
+def page():
+    with sync_playwright() as p:
+        browser = p.chromium.launch(
+            headless=is_headless(),
+            slow_mo=get_slow_mo()
+        )
+        page = browser.new_page()
+        yield page
+        browser.close()

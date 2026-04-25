@@ -21,6 +21,14 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt
+      
+      - name: Install Playwright
+        run: |
+          pip install playwright
+          playwright install
 
       - name: Run tests
-        run: pytest -v
+        run: PYTHONPATH=. pytest -v
+        env: /
+          HEADLESS: "true"
+          SLOW_MO: "0"

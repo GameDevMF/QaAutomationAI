@@ -1,3 +1,5 @@
+![Tests](https://github.com/GameDevMF/QaAutomationAI/actions/workflows/tests.yml/badge.svg)
+
 # QA Automation & AI Testing Playground (Python)
 
 This repository is a personal QA automation learning project focused on building real-world testing skills using Python, pytest, API testing, UI automation, and CI/CD basics.
