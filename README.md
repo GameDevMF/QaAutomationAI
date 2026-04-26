@@ -2,9 +2,21 @@
 
 # QA Automation & AI Testing Playground (Python)
 
-This repository is a personal QA automation learning project focused on building real-world testing skills using Python, pytest, API testing, UI automation, and CI/CD basics.
+This repository is a personal QA automation learning project focused on building real-world testing skills using Python, pytest, API testing, UI automation with Playwright, and CI/CD integration via GitHub Actions.
 
 It is designed to simulate how modern QA Engineers structure automation frameworks in real companies.
+
+---
+
+## 📋 Features
+
+- API testing (GET, POST, negative cases)
+- UI automation (Playwright)
+- Reusable test framework structure
+- Data-driven testing
+- Logging and error handling
+- Environment-based configuration
+- CI/CD pipeline (GitHub Actions)
 
 ---
 
@@ -55,20 +67,32 @@ qa-automation-ai/<br>
 
 ## 🔧 Configuration
 
-The base API URL can be configured using an environment variable:
+Environment variables:
+
+- HEADLESS → controls browser mode (false shows browser)
+- SLOW_MO → controls execution speed (use it to see browser)
+- BASE_URL → API base URL
+
+The variables can be configured using an environment variable:
 
 For Windows Powershell
 ```bash
+$env:HEADLESS="true"
+$env:SLOW_MO="500"
 $env:BASE_URL="https://jsonplaceholder.typicode.com/"
 ```
 
 For Windows CMD
 ```bash
+set HEADLESS=false
+set SLOW_MO=0
 set BASE_URL=https://jsonplaceholder.typicode.com/
 ```
 
 For Linux
 ```bash
+export HEADLESS=true
+export SLOW_MO=500
 export BASE_URL=https://your-api-url.com
 ```
 
