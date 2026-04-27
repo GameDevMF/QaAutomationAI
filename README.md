@@ -35,6 +35,8 @@ qa-automation-ai/<br>
 ├── api_tests/ # API test cases using pytest<br>
 ├── ui_tests/ # UI automation tests (Playwright)<br>
 ├── core/ # Reusable components (API client, helpers)<br>
+├── test_data/ # Data Driven test data<br>
+├── pages/ # POM pages<br>
 ├── ai_experiments/ # AI-assisted testing experiments<br>
 ├── requirements.txt # Dependencies<br>
 └── README.md
