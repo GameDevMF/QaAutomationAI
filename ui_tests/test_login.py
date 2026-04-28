@@ -1,10 +1,12 @@
 import pytest
 from pages.login_page import LoginPage
+from pages.inventory_page import InventoryPage
 
 
 @pytest.mark.ui
 def test_login_success(page):
     login_page = LoginPage(page)
+    inventory_page = InventoryPage(page)
 
     # 1. Navigate to the login page
     login_page.navigate()
@@ -23,6 +25,5 @@ def test_login_success(page):
         "URL did not change to inventory page after login"
 
     # 5. Assertions: Check for a specific success element on the page
-    success_message = page.locator(".inventory_list")
-    assert success_message.is_visible(), \
-        "Success message is not visible after login"
+    assert inventory_page.is_loaded().is_visible(), \
+        "Inventory page is not loaded after login"
