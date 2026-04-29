@@ -4,4 +4,4 @@ class InventoryPage:
         self.inventory_list = ".inventory_list"
 
     def is_loaded(self):
-        return self.page.locator(self.inventory_list)
+        return self.page.locator(self.inventory_list).is_visible()
