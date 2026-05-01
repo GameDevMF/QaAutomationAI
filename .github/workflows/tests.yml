@@ -26,9 +26,15 @@ jobs:
         run: |
           pip install playwright
           playwright install
+      
+      - name: Run Smoke tests
+        run: PYTHONPATH=. pytest -m smoke -v
 
-      - name: Run tests
-        run: PYTHONPATH=. pytest -v
+      - name: Run API tests
+        run: PYTHONPATH=. pytest -m api -v
+      
+      - name: Run UI tests
+        run: PYTHONPATH=. pytest -m ui -v
         env:
           HEADLESS: "true"
           SLOW_MO: "0"
