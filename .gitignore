@@ -34,3 +34,6 @@ build/
 
 # Environment variables
 .env
+
+# Report files
+report.html

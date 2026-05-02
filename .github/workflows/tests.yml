@@ -28,13 +28,19 @@ jobs:
           playwright install
       
       - name: Run Smoke tests
-        run: PYTHONPATH=. pytest -m smoke -v
+        run: PYTHONPATH=. pytest -m smoke
 
       - name: Run API tests
-        run: PYTHONPATH=. pytest -m api -v
+        run: PYTHONPATH=. pytest -m api
       
       - name: Run UI tests
-        run: PYTHONPATH=. pytest -m ui -v
+        run: PYTHONPATH=. pytest -m ui
         env:
           HEADLESS: "true"
           SLOW_MO: "0"
+      
+      - name: Upload Test Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-report
+          path: report.html
