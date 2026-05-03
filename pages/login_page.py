@@ -1,3 +1,4 @@
+from core.config import UI_BASE_URL
 from pages.base_page import BasePage
 from pages.inventory_page import InventoryPage
 
@@ -6,17 +7,17 @@ class LoginPage(BasePage):
     def __init__(self, page):
         super().__init__(page)
 
-        self.username_input = "#user-name"
-        self.password_input = "#password"
-        self.login_button = "#login-button"
+        self.username_input_selector = "#user-name"
+        self.password_input_selector = "#password"
+        self.login_button_selector = "#login-button"
 
     def navigate(self):
-        super().navigate("https://www.saucedemo.com/")
+        super().navigate(UI_BASE_URL)
 
     def login(self, user):
-        self.page.fill(self.username_input, user["username"])
-        self.page.fill(self.password_input, user["password"])
-        self.page.click(self.login_button)
+        self.page.fill(self.username_input_selector, user["username"])
+        self.page.fill(self.password_input_selector, user["password"])
+        self.page.click(self.login_button_selector)
 
         return InventoryPage(self.page)
 

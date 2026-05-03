@@ -20,6 +20,16 @@ It is designed to simulate how modern QA Engineers structure automation framewor
 
 ---
 
+## 🏛️ Architecture
+
+- API layer (ApiClient)
+- UI layer (Page Object Model)
+- Shared config (environment-based)
+- Test data separation
+- CI/CD pipeline with GitHub Actions
+
+---
+
 ## 🚀 Tech Stack
 
 - Python 3.x
