@@ -39,6 +39,12 @@ jobs:
           HEADLESS: "true"
           SLOW_MO: "0"
       
+      - name: Run Integration tests
+        run: PYTHONPATH=. pytest -m integration
+        env:
+          HEADLESS: "true"
+          SLOW_MO: "0"
+      
       - name: Upload Test Report
         uses: actions/upload-artifact@v4
         with:
