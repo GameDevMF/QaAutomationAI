@@ -27,6 +27,10 @@ jobs:
           pip install playwright
           playwright install
       
+      - name: Install pytest-playwright
+        run:
+          pip install pytest-playwright
+      
       - name: Run Smoke tests
         run: PYTHONPATH=. pytest -m smoke
 
