@@ -45,6 +45,7 @@ qa-automation-ai/<br>
 ├── api_tests/ # API test cases using pytest<br>
 ├── ui_tests/ # UI automation tests (Playwright)<br>
 ├── integration_tests/ # API & UI combined automation tests (Playwright)<br>
+├── flows/ # Reusable flows<br>
 ├── core/ # Reusable components (API client, helpers)<br>
 ├── test_data/ # Data Driven test data<br>
 ├── pages/ # POM pages<br>
