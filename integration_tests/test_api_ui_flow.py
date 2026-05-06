@@ -12,10 +12,15 @@ from test_data.user_data import VALID_USER
 ])
 @pytest.mark.parametrize("user", [VALID_USER])
 def test_create_post_and_login(api, login_page, inventory_page, user, payload):
-    create_post_and_login(
+    title, _ = create_post_and_login(
         api,
         login_page,
         inventory_page,
         user,
         payload
     )
+
+    count = inventory_page.get_inventory_count()
+
+    assert count > 0, "Inventory count should be greater than 0"
+    assert isinstance(title, str), "Title should be a non-empty string"
