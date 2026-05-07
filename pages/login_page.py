@@ -18,6 +18,7 @@ class LoginPage(BasePage):
         self.page.fill(self.username_input_selector, user["username"])
         self.page.fill(self.password_input_selector, user["password"])
         self.page.click(self.login_button_selector)
+        self.page.wait_for_load_state("networkidle")
 
         return InventoryPage(self.page)
 

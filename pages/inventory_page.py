@@ -1,3 +1,6 @@
+from playwright.sync_api import expect
+
+
 class InventoryPage:
     def __init__(self, page):
         self.page = page
@@ -8,3 +11,8 @@ class InventoryPage:
     
     def get_inventory_count(self):
         return len(self.page.locator(".inventory_item").all())
+
+    def wait_until_loaded(self):
+        expect(
+            self.page.locator(self.inventory_list)
+            ).to_be_visible(timeout=5000)

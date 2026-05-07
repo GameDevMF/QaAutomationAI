@@ -7,6 +7,8 @@ def test_login_success(login_page, inventory_page):
     login_page.navigate()
     login_page.login(VALID_USER)
 
+    inventory_page.wait_until_loaded()
+
     assert inventory_page.is_loaded(), \
         "Login was not successful, inventory list is not visible"
 
