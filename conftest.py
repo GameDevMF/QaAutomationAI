@@ -30,6 +30,11 @@ def api():
     return ApiClient()
 
 
+@pytest.fixture
+def env(request):
+    return request.config.getoption("--env")
+
+
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item):
     outcome = yield
@@ -40,3 +45,12 @@ def pytest_runtest_makereport(item):
 
         if page:
             page.screenshot(path=f"screenshots/{item.name}.png")
+
+
+def pytest_addoption(parser):
+    parser.addoption(
+        "--env",
+        action="store",
+        default="dev",
+        help="Environment to run tests against"
+    )

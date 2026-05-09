@@ -11,7 +11,11 @@ from test_data.user_data import VALID_USER
     {"title": "another", "body": "test", "userId": 2}
 ])
 @pytest.mark.parametrize("user", [VALID_USER])
-def test_create_post_and_login(api, login_page, inventory_page, user, payload):
+def test_create_post_and_login(env, api, login_page, inventory_page, user, payload):
+    print(f"Running against environment: {env}")
+
+    assert env in ["dev", "staging", "prod"]
+
     title, _ = create_post_and_login(
         api,
         login_page,
@@ -24,3 +28,13 @@ def test_create_post_and_login(api, login_page, inventory_page, user, payload):
 
     assert count > 0, "Inventory count should be greater than 0"
     assert isinstance(title, str), "Title should be a non-empty string"
+
+
+@pytest.mark.skip(reason="Feature not implemented yet")
+def test_future_feature():
+    pass
+
+
+@pytest.mark.xfail(reason="Known bug")
+def test_known_bug():
+    assert False
