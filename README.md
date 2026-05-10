@@ -1,8 +1,8 @@
 ![Tests](https://github.com/GameDevMF/QaAutomationAI/actions/workflows/tests.yml/badge.svg)
 
-# QA Automation & AI Testing Playground (Python)
+# QA Automation Framework (Python + Playwright + Pytest)
 
-This repository is a personal QA automation learning project focused on building real-world testing skills using Python, pytest, API testing, UI automation with Playwright, and CI/CD integration via GitHub Actions.
+A modular QA automation framework built with Python, Pytest, Playwright, API testing, and GitHub Actions CI/CD.
 
 It is designed to simulate how modern QA Engineers structure automation frameworks in real companies.
 
@@ -17,6 +17,9 @@ It is designed to simulate how modern QA Engineers structure automation framewor
 - Logging and error handling
 - Environment-based configuration
 - CI/CD pipeline (GitHub Actions)
+- Automatic screenshots on failure
+- HTML reporting
+- Reusable Page Object Model
 
 ---
 
@@ -117,14 +120,24 @@ export BASE_URL=https://your-api-url.com
 ### 1. Install dependencies
 ```bash
 pip install -r requirements.txt
+playwright install
 ```
 
 ### 2. Run tests
 ```bash
 pytest -v
+pytest -m ui
+pytest -m api
+pytest -m integration
 ```
 
 ### 3. Run with detailed output
 ```bash
 pytest -v -s
 ```
+
+---
+
+## 🚫 Limitations
+
+The project uses JSONPlaceholder, a mock API service that does not enforce real validation rules for POST requests.

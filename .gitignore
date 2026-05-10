@@ -37,6 +37,8 @@ build/
 
 # Report files
 report.html
+playwright-report/
+test-results/
 
 # Screenshots
 screenshots/
